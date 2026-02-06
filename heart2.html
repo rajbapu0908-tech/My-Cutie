@@ -142,21 +142,18 @@
         /* Hearts */
         .heart {
             position: absolute;
+            top:-10px;
             color: #ff6b81;
             font-size: 20px;
             animation: fall 6s linear infinite;
         }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-10vh);
-                opacity: 1;
-            }
-
-            100% {
+            to {
                 transform: translateY(110vh);
                 opacity: 0;
             }
+            
         }
     </style>
 </head>
@@ -222,7 +219,7 @@
             document.getElementById("answerInput").value = choice;
         }
         /* Falling hearts */
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 100; i++) {
             let heart = document.createElement("div");
             heart.className = "heart";
             heart.innerHTML = "❤️";
@@ -233,5 +230,6 @@
     </script>
 
 </body>
+
 
 </html>
