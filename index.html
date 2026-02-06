@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>From My Heart ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Background */
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('moment18.jpg') center/cover no-repeat;
+            filter: blur(8px);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        /* Content */
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 420px;
+            animation: fadeUp 1.5s ease;
+        }
+
+        .card h1 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Images */
+        .photos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .photos img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Button */
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #ff6b81;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
+
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
+            animation: fadeUp 1s ease;
+        }
+
+
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Hearts */
+        .heart {
+            position: absolute;
+            color: #ff6b81;
+            font-size: 20px;
+            animation: fall 6s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="card">
+            <h1>Hey… ❤️</h1>
+            <p>
+                I know I hurt you, and I won’t justify my mistakes.
+                I just want you to know that you matter to me more than every things...
+            </p>
+
+            <div class="photos">
+                <img src="moment22.jpg">
+                <img src="moment26.jpg">
+                <img src="moment25.jpg">
+            </div>
+
+            <p>
+                If hearts can listen, mine is only calling your name.
+            </p>
+
+            <button onclick="showMessage()">Tap Here 💖</button>
+
+            <div id="message">
+                Will you give us another chance?
+                <br><strong>I choose you. Always.</strong> 🌸<br>
+                <button onclick="next()">click</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+        function next() {
+            window.location.href = "heart2.html";
+        }
+        /* Falling hearts */
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = 3 + Math.random() * 4 + "s";
+            document.body.appendChild(heart);
+        }
+    </script>
+
+</body>
+
+</html>

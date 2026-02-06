@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>From My Heart ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Background */
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('moment18.jpg') center/cover no-repeat;
+            filter: blur(8px);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        /* Content */
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 420px;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: fadeUp 1.5s ease;
+        }
+
+        .card h1 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Images */
+        .photos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .photos img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Button */
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #ff6b81;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
+
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
+            animation: fadeUp 1s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Hearts */
+        .heart {
+            position: absolute;
+            color: #ff6b81;
+            font-size: 20px;
+            animation: fall 6s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="card">
+            <h1>My Love… ❤️</h1>
+            <p>
+                I know mari bhul evi chhe k maf karva to doorr but mafi magva layak nahi ...<br>
+                Ek time pr to kadach hu tane mari pase reva mate force pan karva mando to .!😞 i did loats of mistakes
+                in past , can you give me a one chance to correct them ...😊🤌🏻
+                I know its very difficult for you but, Will you forgot all the mistakes in the past,whoever did it.. and
+                give us another chance...<br>
+                kasu specify nai karvu past ma j thyu e ...! <br>
+                it is just soft proposal from me...<br>
+                😌it's totally OK what ever your answer, i am alwayes ...😌
+            </p>
+
+            <div class="photos">
+                <img src="moment21.jpg">
+                <img src="moment13.jpg">
+            </div>
+
+            <p>
+                Shu tu maro hath farithi pakdis ..💝
+            </p>
+
+            <button onclick="showMessage()">Tap Here 💖</button>
+
+            <div id="message">
+                Will you be my valentine💌!<br>
+                Will you be my girlfrind🌹!<br>
+                Will you be my future Wife👩🏼‍❤️‍💋‍👨🏼!<br>
+                Will you be my soulmate!<br>
+                Whatever
+                <br><strong>I choose you. Always.</strong> 🌸
+
+                <form action="https://formspree.io/f/maqdwgor" method="POST">
+                    <input type="hidden" name="answer" id="answerInput">
+
+                    <button type="submit" class="yes" onclick="setAnswer('YES')">Yes</button>
+                    <button type="submit" class="no" id="noBtn" onclick="setAnswer('NO')">No</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function setAnswer(choice) {
+            document.getElementById("answerInput").value = choice;
+        }
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+        /*sent ans code*/
+        function setAnswer(choice) {
+            document.getElementById("answerInput").value = choice;
+        }
+        /* Falling hearts */
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = 10 + Math.random() * 4 + "s";
+            document.body.appendChild(heart);
+        }
+    </script>
+
+</body>
+
+</html>
