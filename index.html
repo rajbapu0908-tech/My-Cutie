@@ -181,9 +181,10 @@
             </p>
 
             <button onclick="showMessage()">Tap Here 💖</button>
-<audio id="bgMusic">
+<audio id="bgMusic" preload="auto">
     <source src="Barish.mp3" type="audio/mpeg">
 </audio>
+
             <div id="message">
                 Will you give us another chance?
                 <br><strong>I choose you. Always.</strong> 🌸<br>
@@ -193,28 +194,40 @@
     </div>
 
     <script>
-        function showMessage() {
-            document.getElementById("message").style.display = "block";
-            const music = document.getElementById("bgMusic");
-            music.play();
-        }
-        function next() {
-            window.location.href = "heart2.html";
-        }
-        /* Falling hearts */
-        for (let i = 0; i < 100; i++) {
-            let heart = document.createElement("div");
-            heart.className = "heart";
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = 10 + Math.random() * 4 + "s";
-            document.body.appendChild(heart);
-        }
-    </script>
+    function showMessage() {
+        document.getElementById("message").style.display = "block";
+
+        const music = document.getElementById("bgMusic");
+
+        music.volume = 0.8; // soft romantic sound
+        music.currentTime = 0;
+
+        music.play().catch(err => {
+            console.log("Autoplay blocked:", err);
+            alert("Tap once more to play music 🎵");
+        });
+    }
+
+    function next() {
+        window.location.href = "heart2.html";
+    }
+
+    /* Falling hearts */
+    for (let i = 0; i < 100; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 10 + Math.random() * 4 + "s";
+        document.body.appendChild(heart);
+    }
+</script>
+
 
 </body>
 
 
 </html>
+
 
 
