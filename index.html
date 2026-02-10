@@ -141,6 +141,7 @@
 
         /* Hearts */
         .heart {
+            top:-10px;
             position: absolute;
             color: #ff6b81;
             font-size: 20px;
@@ -148,12 +149,7 @@
         }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-10vh);
-                opacity: 1;
-            }
-
-            100% {
+           to {
                 transform: translateY(110vh);
                 opacity: 0;
             }
@@ -185,7 +181,9 @@
             </p>
 
             <button onclick="showMessage()">Tap Here 💖</button>
-
+<audio id="bgMusic">
+    <source src="Barish.mp3" type="audio/mpeg">
+</audio>
             <div id="message">
                 Will you give us another chance?
                 <br><strong>I choose you. Always.</strong> 🌸<br>
@@ -197,17 +195,19 @@
     <script>
         function showMessage() {
             document.getElementById("message").style.display = "block";
+            const music = document.grtElementById("bgMusic");
+            music,play();
         }
         function next() {
             window.location.href = "heart2.html";
         }
         /* Falling hearts */
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 100; i++) {
             let heart = document.createElement("div");
             heart.className = "heart";
             heart.innerHTML = "❤️";
             heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = 3 + Math.random() * 4 + "s";
+            heart.style.animationDuration = 10 + Math.random() * 4 + "s";
             document.body.appendChild(heart);
         }
     </script>
@@ -216,3 +216,4 @@
 
 
 </html>
+
